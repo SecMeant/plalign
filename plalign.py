@@ -65,7 +65,7 @@ while True:
         if ret:
             fg = frame
             overlay = genoverlay(fg, bg, merge_ratio)
-            if overlay is None:
+            if not overlay is None:
                 cv2.imshow('overlay', overlay)
             else:
                 cv2.imshow('overlay', fg)
