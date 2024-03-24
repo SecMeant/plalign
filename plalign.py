@@ -24,7 +24,7 @@ while True:
     if choice != -1:
         choice = chr(choice & 0x7f)
 
-    # Background pic
+    # Store background pic
     if choice == 'b':
 
         ret, frame = cam.read()
@@ -37,6 +37,7 @@ while True:
 
         continue
 
+    # Adjust up background/foreground image merge ratio
     elif choice == 'k':
         merge_ratio += merge_inc
         if merge_ratio > 1.0:
@@ -44,6 +45,7 @@ while True:
 
         continue
 
+    # Adjust down background/foreground image merge ratio
     elif choice == 'j':
         merge_ratio -= merge_inc
         if merge_ratio < 0.0:
@@ -55,7 +57,7 @@ while True:
     elif choice == 'q' or choice == 'x':
         break
 
-    # Foreground pic
+    # Render resulting image
     else:
 
         ret, frame = cam.read()
